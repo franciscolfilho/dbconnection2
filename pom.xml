@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>test</groupId>
+  <artifactId>dbconnection2</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <name>dbconnection2 Maven Webapp</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+    
+	<!-- https://mvnrepository.com/artifact/javax.ws.rs/javax.ws.rs-api -->
+	<dependency>
+	    <groupId>javax.ws.rs</groupId>
+	    <artifactId>javax.ws.rs-api</artifactId>
+	    <version>2.1.1</version>
+	</dependency>
+	<!-- 
+	<dependency>
+	    <groupId>org.mariadb.jdbc</groupId>
+	    <artifactId>mariadb-java-client</artifactId>
+	    <version>2.7.4</version>
+	</dependency>
+	-->
+<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+   <!-- 
+	<dependency>
+	    <groupId>org.postgresql</groupId>
+	    <artifactId>postgresql</artifactId>
+	    <version>42.2.24</version>
+	</dependency>
+	-->
+
+    <!-- 
+     RESTEasy makes it easier to get started because it comes bundled with the following servers:
+	    JBoss AS 7
+	    JBoss EAP 6.1
+	    Wildfly
+	 -->
+    
+    <!-- https://access.redhat.com/articles/112673
+	    jboss eap 7.2 -> RESTEasy 3.6.1.SP9 nativo
+	-->
+	
+	<!-- 
+      Apenas para não confiar/depender do servlet container, 
+	    então pode-se importar aqui no pom.xml (inclusive uma versão mais nova) 
+	    como a 3.15.1.Final (nativa apenas no jboss eap 7.4)
+	 -->
+  
+    <!-- 
+		According to the JAX-RS spec there are three ways to activate a restful endpoint. 
+		These three methods are specified in the JAX-RS 1.1 specification in section 2.3.2.
+		
+		1) Not including an application class and using web.xml as described above
+		2) subclassing javax.ws.rs.core.Application and using web.xml
+		3) subclassing javax.ws.rs.core.Application and using the ApplicationPath annotation.
+		
+		See https://docs.jboss.org/author/display/AS7/JAX-RS+Reference+Guide
+     -->         
+  </dependencies>
+
+  <build>
+    <finalName>dbconnection2</finalName>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.1.0</version>
+        </plugin>
+        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.0.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.22.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>3.2.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>2.5.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.8.2</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
